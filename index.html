@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>GROCERY LIST</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   $('#addTask').on('click', function(){
+     var newTask = $('#newTask').val();
+     if(newTask !== ''){
+         $('#taskList').append('<li><span>' + newTask + '</span>&nbsp&nbsp&nbsp<button class="delete">ADD</button>&nbsp&nbsp<button class="delete">REMOVE</button></li>');
+        $('#newTask').val('');
+  }
+});
+$('#taskList').on('click','.delete',function(){
+$(this).closest('li').remove();
+});
+});
+
+</script>
+<style>
+  body{
+    font-family: Arial, sans-serif;
+    bg-color: #f4f4f4;
+    margin: 0px;
+    padding: 0px;
+   
+  }
+  .container{
+    max-width: 600px;
+    margin: 50px auto;
+    bg-color: #fff;
+    padding:20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h1{
+   
+    text-align: center;
+    color:white;
+   
+  }
+  input[type="text"]{
+    width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  button{
+    padding: 10px;
+    bg-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: #45a049;
+  }
+  ol{
+    list-style: none;
+    padding: 0px;
+  }
+  li{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color:white;
+    border-bottom: 1px solid #eee;
+    
+  }
+  li span{
+    flex-grow: 1;
+  }
+  .delete{
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .delete:hover{
+    background-color: #d32f2f;
+  }
+body{
+   background-image:url("https://t3.ftcdn.net/jpg/03/07/15/28/360_F_307152868_ncMILWfZIhGoAEK8QsFDsScGiRaQMsL0.jpg");
+   background-size:cover;
+  }
+  
+</style>
+</head>
+<body style="background-image:">
+<div class="container">
+<h1>GROCERY LIST </h1>
+<input type="text" id="newTask" placeholder="Add a Item">
+<button id="addTask">Add to list</button>
+<ol id="taskList">
+</ol>
+</div>
+</script>
+</body>
+</html>
